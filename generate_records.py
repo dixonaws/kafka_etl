@@ -2,11 +2,12 @@ from record import Record
 import csv
 import sys
 import argparse
+import os
 
 def main():
-	parser=argparse.ArgumentParser(description="Specify the number of records to generate and the filename to write")
+	parser=argparse.ArgumentParser(description="Specify the number of records to generate and the filename to write, e.g. generate_records.py 1000 my_csv_file.csv")
 
-	parser.add_argument("Records", help="The number of records to write")
+	parser.add_argument("Records", help="The number of records to write (integer)")
 	parser.add_argument("Filename", help="The name of the file to write; if this file exists, then it will be overwritten.")
 
 	args=parser.parse_args()
@@ -37,8 +38,12 @@ def main():
 		csvwriter.writerow(dict_record.values())
 		int_counter=int_counter+1
 
-	print("done.")
+	print("done, " + str(get_file_size_bytes(str_filename)/1024) + " kB written")
 	file_employ_data.close()
+
+def get_file_size_bytes(str_a_filename):
+	statinfo=os.stat(str_a_filename)
+	return(int(statinfo.st_size))
 
 main()
 
