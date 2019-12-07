@@ -21,7 +21,13 @@ def main():
 
 	sys.stdout.write("Generating " + str(int_records_to_put) + " records... ")
 	for dict_record in Record().generate(int_records_to_put):  # generate int_users_to_put users
-		# print(record)
+		# remove the newline from the address field
+		str_address=dict_record["address"]
+		str_corrected_address=str_address.replace("\n", ", ")
+		dict_record["address"]=str_corrected_address
+
+		print(dict_record)
+
 		list_records.append(dict_record)
 	print("done, list_records contains " + str(len(list_records)) + " records." )
 
@@ -30,12 +36,12 @@ def main():
 
 	# write each record in the list
 	int_counter=0
-	for dict_record in list_records:
+	for record in list_records:
 		# if we are writing the first record, write the header row
 		if(int_counter==0):
-			csvwriter.writerow(dict_record.keys())
+			csvwriter.writerow(record.keys())
 
-		csvwriter.writerow(dict_record.values())
+		csvwriter.writerow(record.values())
 		int_counter=int_counter+1
 
 	print("done, " + str(get_file_size_bytes(str_filename)/1024) + " kB written")
