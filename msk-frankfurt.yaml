@@ -260,7 +260,9 @@ Resources:
 
         yum install java-1.8.0-openjdk-devel -y
 
-        yum erase awscli -y
+        yum install awscli -y
+
+        yum install -y jq
 
         cd /home/ec2-user
 
