@@ -2,3 +2,4 @@
 venv_python2/
 venv_python3/
 *.csv
+__pycache__
