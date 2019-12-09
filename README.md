@@ -11,5 +11,9 @@ The cloudformation template takes ~15 mins to complete in AWS (tested in us-east
 
 aws kafka get-bootstrap-brokers seems to have a problem - get them from the AWS console
 
+### generate_records.py
+A simple program to generate a CSV file with fake data<br>
+Usage: python generate_records.py <number of records> <output file.csv>
+
 
 
