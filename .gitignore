@@ -1,5 +1,6 @@
 .idea/
 venv_python2/
 venv_python3/
+venv/
 *.csv
 __pycache__
