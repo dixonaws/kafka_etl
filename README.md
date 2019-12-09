@@ -13,7 +13,9 @@ aws kafka get-bootstrap-brokers seems to have a problem - get them from the AWS 
 
 ### generate_records.py
 A simple program to generate a CSV file with fake data<br>
-Usage: python generate_records.py <number of records> <output file.csv>
+Usage:
+<code>python generate_records.py <number of records> <output file.csv></code>
+
 
 
 
