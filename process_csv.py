@@ -14,6 +14,7 @@ def read_file(str_filename):
     file_filename.close()
     return(lst_file_contents)
 
+# fetch a file from S3 and return a list of strings which represent records
 def read_file_from_s3(str_s3_bucket, str_s3_key):
     lst_file_contents=[]
     s3_resource=boto3.resource("s3")
